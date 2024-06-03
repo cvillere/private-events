@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
 
-
+  def new
+    @post = Post.new
+  end
 
   def create
     
@@ -8,9 +10,9 @@ class EventsController < ApplicationController
 
     # @post = Post.new(post_params)
 
-    if @post.save
+    if @event.save
       redirect_to posts_path
-    elsehtm
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -22,7 +24,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date)
+    params.require(:event).permit(:date, :location)
   end
 
 end

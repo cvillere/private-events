@@ -1,9 +1,6 @@
-<h1>Shows Created</h1>
+<h1>Shows Details</h1>
 
 <ul>
-  <% @events.each do |event| %>
-    <li><%= event %></li> 
-      <li><%= event.date %></li> 
-      <li><%= event.date %></li>
-  <% end %>
+  <li><%= @event.date %></li> 
+  <li><%= @event.location %></li>
 </ul>
