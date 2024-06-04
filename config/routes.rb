@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   root "events#index"
 
   resources :event_attendees only: []
+  resources :event
 
 end
