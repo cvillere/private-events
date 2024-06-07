@@ -13,6 +13,12 @@
   </div>
 
   <div>
+    <%= form.fields_for :event_attendees do |event_attendees_form| %>
+    <%= event_attendees_form.label :attendence, "Would you like to attend?" %><br>
+    <%= event_attendees_form.check_box :attendence %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 

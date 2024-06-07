@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :index] 
+
   def new
-    @post = Post.new
+    @event = Event.new
   end
 
   def create
@@ -11,7 +13,7 @@ class EventsController < ApplicationController
     # @post = Post.new(post_params)
 
     if @event.save
-      redirect_to posts_path
+      redirect_to events_path
     else
       render :new, status: :unprocessable_entity
     end
