@@ -5,13 +5,19 @@ class EventAttendeesController < ApplicationController
   end
 
   def create
-    @event_attendee = @event.user.create_event_attendee
+    @event_attendee = @event.create_event_attendee
 
     if @event_attendee.save
       redirect_to event_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def event_attendee_params
+    params.require(:event_attendee).permit(:event_id, current_user)
   end
 
 end
