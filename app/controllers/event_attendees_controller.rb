@@ -1,7 +1,7 @@
 class EventAttendeesController < ApplicationController
 
   def create
-    @event_attendee = @event.create_event_attendee
+    @event_attendee = current_user.create_event_attendee
 
     if @event_attendee.save
       redirect_to event_path

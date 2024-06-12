@@ -6,3 +6,9 @@
   <li><%= @event.date %></li> 
   <li><%= @event.location %></li>
 </ul>
+
+<ul>
+  <% @event.event_attendees.each do |event_attendee| %>
+    <li><%= event_attendee.email %></li>
+  <% end %>
+</ul>
