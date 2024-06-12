@@ -1,9 +1,5 @@
 class EventAttendeesController < ApplicationController
 
-  def new
-    @event_attendee = EventAttendee.new
-  end
-
   def create
     @event_attendee = @event.create_event_attendee
 

@@ -1,6 +1,6 @@
 <h1>Shows Details</h1>
 
-<%= link_to 'this event', show_event_path() %>
+<%= link_to 'attend', [@event, :event_attendance], data: { turbo_method: :post } %>
 
 <ul>
   <li><%= @event.date %></li> 
