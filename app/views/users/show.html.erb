@@ -12,7 +12,14 @@
 
 <ul>
   <% current_user.attended_events.each do |attended_event| %>
-    <li><%= attended_event %></li> 
+    
+    <h2>Show Occurred</h2>
+    <% attended_event.where(params[:date] < Time.now  ) %>
+      <li><%= attended_event.date %></li> 
+      <li><%= attended_event.location %></li>
+
+    <h2>Show Will Occur</h2>
+    <% attended_event.where(params[:date] > Time.now  ) %>
       <li><%= attended_event.date %></li> 
       <li><%= attended_event.location %></li>
   <% end %>
