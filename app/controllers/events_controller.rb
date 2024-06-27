@@ -19,6 +19,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def index
     @events = Event.all
   end
