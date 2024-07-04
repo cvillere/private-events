@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   
   belongs_to :creator, foreign_key: :creator_id, class_name: "User"
-  has_many :attendees, through: :event_attendees, source: :event_attendee
+  has_many :attendees, through: :event_attendees, source: :attendee
 
   scope :past, -> { where("past < ?", Date.today) }
   scope :upcoming, -> { where("upcoming > ?", Date.today) }
