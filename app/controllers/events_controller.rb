@@ -8,7 +8,9 @@ class EventsController < ApplicationController
 
   def create
     
-    @event = @user.create_event(event_params)
+    @event = current_user.create_event(event_params)
+
+    #@post = current_user.posts.build(post_params)
 
     # @post = Post.new(post_params)
 
@@ -20,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def index
