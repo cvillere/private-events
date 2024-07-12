@@ -4,7 +4,7 @@
       <ul>
         <li><%= link_to "All Events", events_path %></li>
         <li><%= link_to "Make New Event", new_event_path %></li>
-        <li><%= link_to "View User's Events", @event %></li>
+        <li><%= link_to "View User's Events", user_path(current_user) %></li>
       </ul>
     </nav>
   </div>
