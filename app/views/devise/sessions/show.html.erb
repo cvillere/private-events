@@ -1,0 +1,28 @@
+<h1>Shows Created</h1>
+
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event %></li> 
+    <% if event.creator_id == current_user.user_id %>
+      <li><%= created_event.date %></li> 
+      <li><%= created_event.location %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h1>Shows Attended</h1>
+
+<ul>
+  <% current_user.attended_events.each do |attended_event| %>
+    
+    <h2>Show Occurred</h2>
+    <% attended_event.where("date < ?", Time.now) %>
+      <li><%= attended_event.date %></li> 
+      <li><%= attended_event.location %></li>
+
+    <h2>Show Will Occur</h2>
+    <% attended_event.where("date < ?", Time.now) %>
+      <li><%= attended_event.date %></li> 
+      <li><%= attended_event.location %></li>
+  <% end %>
+</ul>
