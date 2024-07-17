@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def create
     
-    @event = current_user.create_event(event_params)
+    @event = current_user.events.build(event_params)
 
     #@post = current_user.posts.build(post_params)
 
