@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
+
   }
 
   devise_scope :user do
     get 'users/:id', to: 'users/sessions#show', as: 'user'
+    #get 'users/sign_out' => "devise/sessions#destroy"
+    get 'users/sign_in', to: 'devise/sessions#new'
+
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
