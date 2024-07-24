@@ -14,6 +14,7 @@ class Users::SessionsController < Devise::SessionsController
   #end
 
   def show
+    @event_attendees = EventAttendee.attendees.current_user
     @events = current_user.events
     @user = User.find(params[:id])
   end

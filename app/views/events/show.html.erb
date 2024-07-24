@@ -1,6 +1,6 @@
 <h1>Shows Details</h1>
 
-<%= link_to 'attend', [@event, :event_attendance], data: { turbo_method: :post } %>
+<%= link_to 'attend', new_event_attendee_path(@event_attendees.attendee), data: { turbo_method: :post } %>
 
 <ul>
   <li><%= @event.date %></li> 
@@ -8,7 +8,7 @@
 </ul>
 
 <ul>
-  <% @event.event_attendees.each do |event_attendee| %>
-    <li><%= event_attendee.email %></li>
+  <% @event_attendees.attendee.event.each do |attendee| %>
+    <li><%= attendee.email %></li>
   <% end %>
 </ul>

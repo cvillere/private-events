@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_005222) do
     t.index ["attended_events_id"], name: "index_event_attendees_on_attended_events_id"
     t.index ["attendee_id"], name: "index_event_attendees_on_attendee_id"
   end
-
+  
   create_table "events", force: :cascade do |t|
     t.date "date"
     t.string "location"
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_005222) do
     t.integer "creator_id", null: false
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
-
+  
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
