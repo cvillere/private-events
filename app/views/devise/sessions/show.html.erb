@@ -10,21 +10,22 @@
   <% end %>
 </ul>
 
+
 <h1>Shows Attended</h1>
 
 <ul>
-  <% @event_attendees.each do |event_attendee| %>
+  <% #@event_attendees.each do |event_attendee| %>
     
     <h2>Show Occurred</h2>
-    <% if event_attendee.attendee_id == current_user.id && attendee.where("date < ?", Time.now) %>
-      <li><%= event_attendee.attended_event_id.date %></li> 
-      <li><%= event_attendee.attended_event_id.location %></li>
-    <% end %>
+    <% #if event_attendee.attendee_id == current_user.id && attendee.where("date < ?", Time.now) %>
+      <li><%= #event_attendee.attended_event_id.date %></li> 
+      <li><%= #event_attendee.attended_event_id.location %></li>
+    <% #end %>
 
     <h2>Show Will Occur</h2>
-    <% if event_attendee.attendee_id == current_user.id && attended_event.where("date < ?", Time.now) %>
-      <li><%= event_attendee.attended_event_id.date %></li> 
-      <li><%= event_attendee.attended_event_id.location %></li>
-    <% end %>
-  <% end %>
+    <% #if event_attendee.attendee_id == current_user.id && attended_event.where("date < ?", Time.now) %>
+      <li><%= #event_attendee.attended_event_id.date %></li> 
+      <li><%= #event_attendee.attended_event_id.location %></li>
+    <% #end %>
+  <% #end %>
 </ul>

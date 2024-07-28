@@ -1,14 +1,22 @@
-<h1>Shows Details</h1>
+ <h1>Shows Details</h1>
 
-<%= link_to 'attend', new_event_attendee_path(@event_attendees.attendee), data: { turbo_method: :post } %>
+<%= button_to 'attend', event_event_attendees_path(event_id: @event), method: :post %>
+
 
 <ul>
   <li><%= @event.date %></li> 
   <li><%= @event.location %></li>
 </ul>
 
+
 <ul>
-  <% @event_attendees.attendee.event.each do |attendee| %>
-    <li><%= attendee.email %></li>
+  <% if false %>
+    <% @event_attendees.each do |event_attendee| %>
+      <li><% if event.id == event_attendee.attended_event_id %></li>
+        <li><%= event_attendee.attendee_id %></li>
+      <% end %>
+    <% end %>
   <% end %>
 </ul>
+
+

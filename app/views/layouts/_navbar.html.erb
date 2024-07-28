@@ -1,11 +1,15 @@
 <header>
   <div>
     <nav>
-      <ul>
+      <ul class="nav_bar">
         <li><%= link_to "All Events", events_path %></li>
         <li><%= link_to "Make New Event", new_event_path %></li>
-        <li><%= link_to "View User's Events", current_user %></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<%
+=begin
+<li><%= link_to "View User's Events", current_user.events %></li>
+=end %>

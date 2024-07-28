@@ -1,2 +1,13 @@
 <h1>All Your Events, Homie</h1>
 
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event %></li>
+    <li><%= event.creator_id %></li> 
+    <li><%= event.date %></li>
+    <li><%= event.location %></li>
+    <li><%= link_to "show event page", event_url(event) %></li>
+  <% end %>
+</ul>

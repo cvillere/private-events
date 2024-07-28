@@ -21,10 +21,9 @@ Rails.application.routes.draw do
   root "events#index"
 
   resources :users
-  resources :event_attendees, only: [:new, :create]
+  resources :event_attendees
   resources :events do
-    #post 'attend' => 'event_attendees#create'
-    #delete 'unattend' => 'event_attendees#destory'
+    resources :event_attendees
   end
 
 
