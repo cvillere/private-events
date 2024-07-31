@@ -10,7 +10,7 @@ class EventAttendeesController < ApplicationController
     @event_attendee = @event.attendees.build(event_attendee_params)
 
     if @event_attendee.save
-      redirect_to event_path
+      redirect_to events_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class EventAttendeesController < ApplicationController
   private
 
   def event_attendee_params
-    params.require(:event_attendee).permit(:attendence, current_user.id, @event)
+    params.require(:event_attendee).reverse_merge(attendence: true).permit(:attendence, current_user.id, @event)
   end
 
 end
