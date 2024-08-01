@@ -36,7 +36,7 @@ class EventAttendeesController < ApplicationController
   private
 
   def event_attendee_params
-    params.require(:event_attendee).reverse_merge(attendence: true).permit(:attendence, current_user.id, @event)
+    params.require(:event_attendee).reverse_merge(attendence: true).permit(:attendence, :attendee_id, :attended_event_id)
   end
 
 end
