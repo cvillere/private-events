@@ -5,9 +5,9 @@ class EventAttendeesController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:id])
 
-    @event_attendee = @event.attendees.build(event_attendee_params)
+    @event_attendee = @event.event_attendees.build(event_attendee_params)
 
     if @event_attendee.save
       redirect_to events_path
@@ -17,11 +17,11 @@ class EventAttendeesController < ApplicationController
   end
 
   def show
-    @event_attendee = EventAttendee.find(params[:attendee_id])
+    @event_attendee = EventAttendee.find(params[:id])
   end
 
   def destroy
-    @event_attendee = EventAttendee.find(params[:attendee_id])
+    @event_attendee = EventAttendee.find(params[:id])
 
     @event_attendee.destroy
 
@@ -29,7 +29,7 @@ class EventAttendeesController < ApplicationController
   end
 
   def index
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:id])
     @event_attendees = EventAttendee.all
   end
 

@@ -1,7 +1,5 @@
 <h1>All Your Events, Homie</h1>
 
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
-
 <ul>
   <% @events.each do |event| %>
     <li><%= event %></li>
