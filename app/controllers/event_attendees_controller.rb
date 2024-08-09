@@ -7,9 +7,9 @@ class EventAttendeesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
 
-    @event_attendee = @event.event_attendees.build(attendee: current_user)
+    @event_attendee = @event.event_attendees.build(attendee: current_user, attended_event: @event)
 
-    if @event_attendee.save
+    if @event_attendee.save!
       redirect_to events_path
     else
       render :new, status: :unprocessable_entity

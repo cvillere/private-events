@@ -1,5 +1,8 @@
 <h1>All Your Events, Homie</h1>
 
+<h2>current user is below</h2>
+<h1><%= current_user.id %></h1>
+
 <ul>
   <% @events.each do |event| %>
     <li><%= event %></li>
