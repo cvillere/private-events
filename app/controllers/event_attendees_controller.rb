@@ -7,7 +7,7 @@ class EventAttendeesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
 
-    @event_attendee = @event.event_attendees.build(attendee: current_user, attended_event: @event)
+    @event_attendee = @event.event_attendees.build(attendee_id: current_user.id)
 
     if @event_attendee.save!
       redirect_to events_path
