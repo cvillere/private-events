@@ -14,8 +14,7 @@ class Users::SessionsController < Devise::SessionsController
   #end
 
   def show
-    @events = current_user.events
-    @user = User.find(params[:id])
+    @events = Event.all
   end
 
   # DELETE /resource/sign_out

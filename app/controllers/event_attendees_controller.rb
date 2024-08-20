@@ -14,6 +14,7 @@ class EventAttendeesController < ApplicationController
       puts @event_attendee.attended_event
       puts @event_attendee.attendee_id
       puts @event_attendee.attended_event_id
+      debugger
       redirect_to events_path
     else
       puts @event_attendee

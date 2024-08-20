@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'devise/sessions'
 
   }
 
   devise_scope :user do
-    get 'users/:id', to: 'users/sessions#show', as: 'user'
-    #get 'users/sign_out' => "devise/sessions#destroy"
+    # get 'users/:id', to: 'users/sessions#show', as: 'user'
+    # get 'users/sign_out' => "devise/sessions#destroy"
     get 'users/sign_in', to: 'devise/sessions#new'
+    get 'sessions/show', to: 'devise/sessions#show', as: 'session'
 
   end
   
