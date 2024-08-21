@@ -27,6 +27,4 @@ Rails.application.routes.draw do
     resources :event_attendees
   end
 
-
-
 end
