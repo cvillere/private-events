@@ -13,9 +13,8 @@ class Users::SessionsController < Devise::SessionsController
     #super
   #end
 
-  debugger
-
   def show
+    debugger
     @events = Event.all
   end
 
