@@ -13,9 +13,10 @@ class Users::SessionsController < Devise::SessionsController
     #super
   #end
 
+  debugger
+
   def show
     @events = Event.all
-    debugger
   end
 
   # DELETE /resource/sign_out
