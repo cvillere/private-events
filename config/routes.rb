@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'devise/sessions'
+    sessions: 'users/sessions'
 
   }
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     # get 'users/:id', to: 'users/sessions#show', as: 'user'
     # get 'users/sign_out' => "devise/sessions#destroy"
     get 'users/sign_in', to: 'devise/sessions#new'
-    get 'sessions/show', to: 'devise/sessions#show', as: 'session'
+    get 'sessions/show', to: 'devise/sessions#show', as: 'sessions'
 
   end
   
