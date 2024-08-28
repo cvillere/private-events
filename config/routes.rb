@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     # get 'users/:id', to: 'users/sessions#show', as: 'user'
     # get 'users/sign_out' => "devise/sessions#destroy"
     get 'users/sign_in', to: 'devise/sessions#new'
-    get 'sessions/show', to: 'devise/sessions#show', as: 'sessions'
+    get 'users/show', to: 'users/sessions#show', as: 'sessions'
 
   end
   

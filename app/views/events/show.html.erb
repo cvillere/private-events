@@ -10,13 +10,11 @@
 
 
 <ul>
-  <% if false %>
     <% @event_attendees.each do |event_attendee| %>
       <li><% if @event.id == event_attendee.attended_event_id %></li>
         <li><%= event_attendee.attendee_id %></li>
       <% end %>
     <% end %>
-  <% end %>
 </ul>
 
 
