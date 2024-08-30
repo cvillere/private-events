@@ -1,10 +1,9 @@
 <h1>Shows Created</h1>
 
-<% # debugger %>
 <ul>
   <% @events.each do |event| %>
     <li><%= event %></li> 
-    <% if event.creator_id == current_user %>
+    <% if event.creator_id == current_user.id %>
       <li><%= event.date %></li> 
       <li><%= event.location %></li>
     <% end %>
@@ -16,17 +15,24 @@
 
 <ul>
   <% @events.each do |event| %>
-    
-    <h2>Show Occurred</h2>
-    <% if event_attendee.attendee_id == current_user && event_attendee.where("date < ?", Time.now) %>
-      <li><%= event_attendee.attended_event_id.date %></li> 
-      <li><%= event_attendee.attended_event_id.location %></li>
-    <% end %>
+      <% @event_attendees.each do |event_attendee| %>
 
-    <h2>Show Will Occur</h2>
-    <% if event_attendee.attendee_id == current_user && event_attendee.where("date > ?", Time.now) %>
-      <li><%= event_attendee.attended_event_id.date %></li> 
-      <li><%= event_attendee.attended_event_id.location %></li>
+        <% if event_attendee.attendee_id == current_user.id && Event.where("date < ?", Time.now) %>
+      
+          <h2>Show Occurred</h2>
+
+          <li><%= event.date %></li> 
+          <li><%= event.location %></li>
+        <% end %>
+
+
+      <% if event_attendee.attendee_id == current_user.id && Event.where("date > ?", Time.now) %>
+
+          <h2>Show Will Occur</h2>
+
+        <li><%= event.date %></li> 
+        <li><%= event.location %></li>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
