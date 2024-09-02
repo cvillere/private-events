@@ -13,7 +13,6 @@
 
 <h1>Shows Attended</h1>
 
-<ul>
   <% @events.each do |event| %>
       <% @event_attendees.each do |event_attendee| %>
 
@@ -21,8 +20,11 @@
       
           <h2>Show Occurred</h2>
 
-          <li><%= event.date %></li> 
-          <li><%= event.location %></li>
+          
+            <li><%= event.date %></li> 
+            <li><%= event.location %></li>
+  
+
         <% end %>
 
 
@@ -30,9 +32,11 @@
 
           <h2>Show Will Occur</h2>
 
-        <li><%= event.date %></li> 
-        <li><%= event.location %></li>
+          
+            <li><%= event.date %></li> 
+            <li><%= event.location %></li>
+    
+
       <% end %>
     <% end %>
   <% end %>
-</ul>

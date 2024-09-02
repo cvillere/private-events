@@ -9,12 +9,12 @@
 </ul>
 
 
-<ul>
     <% @event_attendees.each do |event_attendee| %>
-      <li><% if @event.id == event_attendee.attended_event_id %></li>
+      <% if @event.id == event_attendee.attended_event_id %>
+      <ul>
         <li><%= event_attendee.attendee_id %></li>
+      </ul>
       <% end %>
     <% end %>
-</ul>
 
 
