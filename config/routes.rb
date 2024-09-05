@@ -23,8 +23,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :event_attendees
-  resources :events do
-    resources :event_attendees
-  end
+  resources :events
 
 end

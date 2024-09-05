@@ -13,12 +13,12 @@
 
 <h1>Shows Attended</h1>
 
-  <% @events.each do |event| %>
-      <% @event_attendees.each do |event_attendee| %>
+  <h2>Show Occurred</h2>
 
-        <% if event_attendee.attendee_id == current_user.id && Event.where("date < ?", Time.now) %>
-      
-          <h2>Show Occurred</h2>
+  <% @events.each do |event| %>
+      <% @event_attendees.each do |event_attendee| %> 
+
+        <% if event_attendee.attendee_id == current_user.id && event.date < Date.today %>
 
           
             <li><%= event.date %></li> 
@@ -26,11 +26,15 @@
   
 
         <% end %>
+      <% end %>
+    <%end %>
 
+  <h2>Show Will Occur</h2>
 
-      <% if event_attendee.attendee_id == current_user.id && Event.where("date > ?", Time.now) %>
+  <% @events.each do |event| %>
+      <% @event_attendees.each do |event_attendee| %>
 
-          <h2>Show Will Occur</h2>
+      <% if event_attendee.attendee_id == current_user.id && event.date > Date.today %>
 
           
             <li><%= event.date %></li> 

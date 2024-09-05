@@ -1,6 +1,7 @@
  <h1>Shows Details</h1>
 
-<%= button_to 'attend', event_event_attendees_path(event_id: @event.id), method: :post %>
+<%= button_to 'attend', event_attendees_path(event_id: @event.id), method: :post %>
+<%= link_to 'edit', edit_event_path(event_id: @event.id) %>
 
 
 <ul>
