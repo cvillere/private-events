@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :event_attendees, foreign_key: :attendee_id
   has_many :events, inverse_of: "creator"
-  has_many :attended_events, through: :event_attendee, source: :attended_event
+  has_many :attended_events, through: :event_attendees
 
 end

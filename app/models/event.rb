@@ -8,15 +8,14 @@ class Event < ApplicationRecord
   scope :past, -> { where("past < ?", Date.today) }
   scope :upcoming, -> { where("upcoming > ?", Date.today) }
 
-=begin
+
   def self.past
     where("past < ?", Date.today)
-
   end
 
   def self.upcoming
     where("upcoming > ?", Date.today)
   end
-=end
+
 
 end

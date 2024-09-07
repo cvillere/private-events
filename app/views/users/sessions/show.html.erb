@@ -16,31 +16,21 @@
   <h2>Show Occurred</h2>
 
   <% @events.each do |event| %>
-      <% @event_attendees.each do |event_attendee| %> 
+        <% if event.date < Date.today %>
 
-        <% if event_attendee.attendee_id == current_user.id && event.date < Date.today %>
-
-          
             <li><%= event.date %></li> 
             <li><%= event.location %></li>
-  
 
         <% end %>
       <% end %>
-    <%end %>
 
   <h2>Show Will Occur</h2>
 
   <% @events.each do |event| %>
-      <% @event_attendees.each do |event_attendee| %>
+      <% if event.date > Date.today %>
 
-      <% if event_attendee.attendee_id == current_user.id && event.date > Date.today %>
-
-          
             <li><%= event.date %></li> 
             <li><%= event.location %></li>
     
-
       <% end %>
     <% end %>
-  <% end %>

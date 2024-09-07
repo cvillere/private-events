@@ -4,11 +4,42 @@
 <h1><%= current_user.id %></h1>
 
 <ul>
-  <% @events.each do |event| %>
-    <li><%= event %></li>
-    <li><%= event.creator_id %></li> 
-    <li><%= event.date %></li>
-    <li><%= event.location %></li>
-    <li><%= link_to "show event page", event_url(event) %></li>
+  <% Event.past.each do |event| %>
+      <li><%= event %></li>
+      <li><%= event.creator_id %></li> 
+      <li><%= event.date %></li>
+      <li><%= event.location %></li>
+      <li><%= link_to "show event page", event_url(event) %></li>
+  <% end %>
+  <% Event.upcoming.each do |event| %>
+      <li><%= event %></li>
+      <li><%= event.creator_id %></li> 
+      <li><%= event.date %></li>
+      <li><%= event.location %></li>
+      <li><%= link_to "show event page", event_url(event) %></li>
   <% end %>
 </ul>
+
+
+
+<% if false %>
+<ul>
+  <% Event.all.each do |event| %>
+    <% if event.past %>
+      <li><%= event %></li>
+      <li><%= event.creator_id %></li> 
+      <li><%= event.date %></li>
+      <li><%= event.location %></li>
+      <li><%= link_to "show event page", event_url(event) %></li>
+    <% elsif event.upcoming %>
+      <li><%= event %></li>
+      <li><%= event.creator_id %></li> 
+      <li><%= event.date %></li>
+      <li><%= event.location %></li>
+      <li><%= link_to "show event page", event_url(event) %></li>
+    <%else %>
+      <li><%= event %></li>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>
