@@ -5,17 +5,17 @@ class Event < ApplicationRecord
   has_many :attendees, through: :event_attendees, source: :attendee
 
 
-  scope :past, -> { where("past < ?", Date.today) }
-  scope :upcoming, -> { where("upcoming > ?", Date.today) }
+  scope :past, -> { where("date < ?", Date.today) }
+  scope :upcoming, -> { where("date > ?", Date.today) }
 
 
-  def self.past
-    where("past < ?", Date.today)
-  end
+  #def self.past
+   # where("past < ?", Date.today)
+  # end
 
-  def self.upcoming
-    where("upcoming > ?", Date.today)
-  end
+  # def self.upcoming
+    # where("upcoming > ?", Date.today)
+  # end
 
 
 end

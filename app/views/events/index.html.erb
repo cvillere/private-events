@@ -3,6 +3,8 @@
 <h2>current user is below</h2>
 <h1><%= current_user.id %></h1>
 
+<h2>Past Events</h2>
+
 <ul>
   <% Event.past.each do |event| %>
       <li><%= event %></li>
@@ -11,6 +13,12 @@
       <li><%= event.location %></li>
       <li><%= link_to "show event page", event_url(event) %></li>
   <% end %>
+</ul>
+
+
+<h2>Upcoming events</h2>
+
+<ul>
   <% Event.upcoming.each do |event| %>
       <li><%= event %></li>
       <li><%= event.creator_id %></li> 
