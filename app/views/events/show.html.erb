@@ -20,7 +20,7 @@
     <% if @event.creator_id == current_user.id %>
       <%= link_to 'edit', edit_event_path(event_id: @event.id) %>
 
-      <%= button_to 'Delete Event', event_path(event_id: @event.id), method: :delete, data: { confirm: 'Are you sure you want to delete this event?' }, class: 'btn' %>
+      <%= button_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure you want to delete this event?' }, class: 'btn' %>
     <% end %>
 
 
