@@ -26,7 +26,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to events_path, notice: "event was successfully deleted"
+    flash[:notice] = "event successfully deleted"
+    redirect_to events_path
 
   end
 
@@ -46,6 +47,7 @@ class EventsController < ApplicationController
   def show 
     @event = Event.find(params[:id])
     @event_attendees = EventAttendee.all
+    @event_attendee = EventAttendee.find(params[:id])
   end
 
   def index

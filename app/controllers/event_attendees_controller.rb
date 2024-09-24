@@ -22,16 +22,15 @@ class EventAttendeesController < ApplicationController
   end
 
   def destroy
+    debugger
     @event_attendee = EventAttendee.find(params[:id])
-
     @event_attendee.destroy
-
-    redirect_to events_path, notice: "attendee was deleted"
+    flash[:notice] = "event attendence was successfully updated"
+    redirect_to events_path
   end
 
   def index
     @event = Event.find(params[:id])
-    @event_attendees = EventAttendee.all
   end
 
   private

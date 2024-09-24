@@ -8,12 +8,23 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= turbo_stream_from "flash" %>
+
   </head>
 
   <body>
     <%= render "layouts/navbar" %>
     <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-    <%= yield %>
+
+  <%= yield %>
+
+    <% flash.each do |key, message| %>
+    <div <%= key %>>
+      <%= message %>
+    </div>
+  <% end %>
+
+    
   </body>
 
 </html>
