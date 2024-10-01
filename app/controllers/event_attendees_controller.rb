@@ -22,7 +22,7 @@ class EventAttendeesController < ApplicationController
   end
 
   def destroy
-    debugger
+    #debugger
     @event_attendee = EventAttendee.find(params[:id])
     @event_attendee.destroy
     flash[:notice] = "event attendence was successfully updated"

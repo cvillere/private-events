@@ -47,7 +47,6 @@ class EventsController < ApplicationController
   def show 
     @event = Event.find(params[:id])
     @event_attendees = EventAttendee.all
-    @event_attendee = EventAttendee.find(params[:id])
   end
 
   def index
